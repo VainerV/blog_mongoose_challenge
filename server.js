@@ -82,7 +82,7 @@ app.put("/blogs/:id", (req, res) => {
       toUpdate[field] = req.body[field];
     }
   });
-
+      console.log(req.body);
   Blog
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
