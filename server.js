@@ -4,9 +4,9 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-//const bodyParser = require('mongo-parse');
+  //const bodyParser = require('mongo-parse');
 const jsonParser = bodyParser.json();
-//const jsonParser =  bodyParser.parse(mongoQuery)
+   //const jsonParser =  bodyParser.parse(mongoQuery)
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require("./config");
@@ -54,12 +54,13 @@ app.post("/blogs", jsonParser, (req, res) => {
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
+      console.log(blogpost);
     });
     
 });
 
 
-console.log(blogpost);
+
 
 app.put("/blogs/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
