@@ -43,7 +43,7 @@ app.post("/blogs", (req, res) => {
       return res.status(400).send(message);
     
   }
- // console.log("REQUEST BODY is", req.body); ????
+ // console.log("REQUEST BODY is", req.body);
   }
   Blog.create({
     title: req.body.title,
