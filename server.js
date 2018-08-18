@@ -10,7 +10,7 @@ const jsonParser = bodyParser.json();
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require("./config");
-const { Blog} = require("./models");
+const { Blog } = require("./models");
 const app = express();
 app.use(express.json());
 app.use(morgan('common'));
@@ -46,6 +46,7 @@ app.post("/blogs", (req, res) => {
  // console.log("REQUEST BODY is", req.body);
   }
   Blog.create({
+    id: uuid.v4(),
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
@@ -55,7 +56,7 @@ app.post("/blogs", (req, res) => {
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
-      console.log("HERE IM CHECKING A CONTENT OF BLOGPOST",blogpost);
+      //console.log("HERE IM CHECKING A CONTENT OF BLOGPOST",blogpost);
     });
     
 });
