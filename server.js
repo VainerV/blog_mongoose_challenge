@@ -36,13 +36,14 @@ app.post("/blogs", (req, res) => {
   const requiredFields = ['title', 'content', 'author'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
-    console.log("REQUEST BODY is", req.body)
+    // console.log("REQUEST BODY is", req.body) working
    if (!(field in req.body)) {
       const message = `Missing \`${field}\` in request body`;
       console.error(message);
       return res.status(400).send(message);
     
   }
+  console.log("REQUEST BODY is", req.body);
   }
   Blog.create({
     title: req.body.title,
