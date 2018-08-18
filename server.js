@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //const bodyParser = require('body-parser');
 const bodyParser = require('mongo-parse');
 //const jsonParser = bodyParser.json();
-const jsonParser =  parser.parse(mongoQuery)
+const jsonParser =  bodyParser.parse(mongoQuery)
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require("./config");
