@@ -28,9 +28,9 @@ app.get("/blogs", (req, res) => {
     });
 });
 
-/*
-app.post("/restaurants", (req, res) => {
-  const requiredFields = ["name", "borough", "cuisine"];
+
+app.post("/blogs", (req, res) => {
+  const requiredFields = ["title", "content", "author"];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -40,20 +40,19 @@ app.post("/restaurants", (req, res) => {
     }
   }
 
-  Restaurant.create({
-    name: req.body.name,
-    borough: req.body.borough,
-    cuisine: req.body.cuisine,
-    grades: req.body.grades,
-    address: req.body.address
+  Blog.create({
+    title: req.body.title,
+    content: req.body.content,
+    author: req.body.author,
   })
-    .then(restaurant => res.status(201).json(restaurant.serialize()))
+    .then(blogpost => res.status(201).json(blogpost.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
     });
 });
 
+/*
 app.put("/restaurants/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
