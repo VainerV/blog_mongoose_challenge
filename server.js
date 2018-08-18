@@ -51,6 +51,7 @@ app.post("/blogs", (req, res) => {
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
+    created: Date.now()
   })
   
     .then(blogpost => res.status(201).json(blogpost.serialize()))

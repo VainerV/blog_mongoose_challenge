@@ -10,7 +10,7 @@ const blogSchema = mongoose.Schema({
   author: {firstName: {type: String, required: true },
           lastName: {type: String, required: true}},
 
-  created: { type: Date, required: true },
+  created: {type: Date, default: Date.now},
   comments: [ {
     body: String,
     date: Date
