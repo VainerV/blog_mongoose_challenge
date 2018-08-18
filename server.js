@@ -49,12 +49,12 @@ app.post("/blogs", (req, res) => {
     content: req.body.content,
     author: req.body.author,
   })
-    
+  
     .then(blogpost => res.status(201).json(blogpost.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
-      console.log(blogpost);
+      console.log("HERE IM CHECKING A CONTENT OF BLOGPOST",blogpost);
     });
     
 });
