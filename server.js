@@ -4,7 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 //const bodyParser = require('body-parser');
-const bodyParser = reqire('mongo-parse');
+const bodyParser = require('mongo-parse');
 const jsonParser = bodyParser.json();
 
 mongoose.Promise = global.Promise;
