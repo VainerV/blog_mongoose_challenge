@@ -3,6 +3,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const jsonParser = bodyParser.json();
 
 mongoose.Promise = global.Promise;
 
@@ -14,7 +15,7 @@ app.use(morgan('common'));
 
 
 // GET requests to /blogposts => return 10 restaurants
-app.get("/blogs", (req, res) => {
+app.get("/blogs",  (req, res) => {
   Blog.find()
     .limit(10)   
     .then(blogposts => {
@@ -29,7 +30,7 @@ app.get("/blogs", (req, res) => {
 });
 
 
-app.post("/blogs", (req, res) => {
+app.post("/blogs", jsonParser, (req, res) => {
   const requiredFields = ['title', 'content', 'author'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
