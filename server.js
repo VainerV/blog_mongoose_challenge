@@ -52,8 +52,8 @@ app.post("/blogs", (req, res) => {
     });
 });
 
-/*
-app.put("/restaurants/:id", (req, res) => {
+
+app.put("/blogs/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     const message =
@@ -67,24 +67,23 @@ app.put("/restaurants/:id", (req, res) => {
   // if the user sent over any of the updatableFields, we udpate those values
   // in document
   const toUpdate = {};
-  const updateableFields = ["name", "borough", "cuisine", "address"];
-
+  const updateableFields = ["title", "content", "author"];
   updateableFields.forEach(field => {
     if (field in req.body) {
       toUpdate[field] = req.body[field];
     }
   });
 
-  Restaurant
+  Blog
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
-    .then(restaurant => res.status(204).end())
+    .then(blogpost => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Internal server error" }));
 });
 
-app.delete("/restaurants/:id", (req, res) => {
-  Restaurant.findByIdAndRemove(req.params.id)
-    .then(restaurant => res.status(204).end())
+app.delete("/blogs/:id", (req, res) => {
+  Blog.findByIdAndRemove(req.params.id)
+    .then(blogpost => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Internal server error" }));
 });
 
@@ -94,7 +93,7 @@ app.use("*", function(req, res) {
 });
 
 
-*/
+
 
 
 
