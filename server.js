@@ -34,7 +34,7 @@ app.post("/blogs", (req, res) => {
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     console.log(req.body)
-   if (!(field in req.body)) {
+   if (!(field in res.body)) {
       const message = `Missing \`${field}\` in request body`;
       console.error(message);
       return res.status(400).send(message);
