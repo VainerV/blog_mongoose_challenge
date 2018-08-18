@@ -30,10 +30,10 @@ app.get("/blogs", (req, res) => {
 
 
 app.post("/blogs", (req, res) => {
-  const requiredFields = ["title", "content", "author"];
+  const requiredFields = ['title', 'content', 'author'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
-    console.log(req.body)
+    //console.log(req.body)
    if (!(field in req.body)) {
       const message = `Missing \`${field}\` in request body`;
       console.error(message);
