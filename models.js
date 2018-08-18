@@ -21,7 +21,7 @@ const blogSchema = mongoose.Schema({
 // exposes *some* of the fields we want from the underlying data
 blogSchema.methods.serialize = function() {
   return {
-    id: this._id,
+    //id: this._id,
     title: this.title,
     content: this.content,
     author: this.author,
