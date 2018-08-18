@@ -7,7 +7,9 @@ const uuid = require('uuid');
 const blogSchema = mongoose.Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
-  author: { type: String, required: true },
+  author: {firstName: {type: String, required: true },
+          lastName: {type: String, required: true}},
+
   created: { type: Date, required: true },
   comments: [ {
     body: String,
@@ -24,7 +26,7 @@ blogSchema.methods.serialize = function() {
     //id: this._id,
     title: this.title,
     content: this.content,
-    author: this.author,
+    author: {firstName: this.author.firstName, lastName: this.author.lastName},
     created: this.created,
     
   };
